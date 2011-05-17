@@ -6,6 +6,10 @@ DON'T commit generated files. This includes bin directories, mainly.
 
 Commit comments are nice, but it's not a big deal if you're working on mainly your own thing.
 
+= SOFT ENG =
+Notes:
+  * Don't embed or load sounds in the file you're using them. Put all the resource stuff in the resource manager class. We don't want to load things twice if it's not necessary.
+
 
 = WHO/WHAT =
 
@@ -22,6 +26,3 @@ Karl: ?
 Jackson: ?
 
 Ryan: Art LOL (we'll keep the art style simple enough that all you techies can contribute. yes, even jackson. maybe.)
-
-= SOFT ENG =
-to be continued.
