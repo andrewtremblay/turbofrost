@@ -21,6 +21,8 @@ package
 		public function makeProjectile(x:int, y:int, xv:Number, yv:Number, timeout:Number, image:Class, onHit:Function):void
 		{
 			var p:Projectile = new Projectile(x, y, xv, yv, timeout, image, onHit);
+			p.x -= p.width / 2;
+			p.y -= p.height / 2;
 			projectiles.add(p);
 		}
 		

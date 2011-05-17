@@ -13,7 +13,9 @@ package
 			return function(target:Actor):void
 				{
 					// knockback
-					
+					// TODO: make this based on projectile direction or something?
+					target.knockbackX = -target.facingNormalX * knockback;
+					target.knockbackY = -target.facingNormalY * knockback;
 					// damage
 					target.health -= damage;
 				};

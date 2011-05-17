@@ -16,6 +16,7 @@ package game
 		public function PlayState() 
 		{
 			super();
+			FlxG.bgColor = 0xffffffff;
 		}
 		
 		override public function create():void 

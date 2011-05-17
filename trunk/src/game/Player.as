@@ -51,18 +51,26 @@ package game
 			if (FlxG.keys.LEFT)
 			{
 				velocity.x = -moveSpeed;
+				facingNormalX = -1;
+				facingNormalY = 0;
 			}
 			else if (FlxG.keys.RIGHT)
 			{
 				velocity.x = moveSpeed;
+				facingNormalX = 1;
+				facingNormalY = 0;				
 			}
 			else if (FlxG.keys.UP)
 			{
 				velocity.y = -moveSpeed;
+				facingNormalX = 0;
+				facingNormalY = -1;				
 			}
 			else if (FlxG.keys.DOWN)
 			{
 				velocity.y = moveSpeed;
+				facingNormalX = 0;
+				facingNormalY = 1;
 			}
 			
 			
@@ -84,11 +92,11 @@ package game
 			}
 
 			// Spells later, when I figure out if we have mana or whatever
-			if (FlxG.keys.D)
+			if (FlxG.keys.justPressed("D"))
 			{
 				
 			}
-			if (FlxG.keys.F)
+			if (FlxG.keys.justPressed("F"))
 			{
 				
 			}			

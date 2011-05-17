@@ -17,8 +17,10 @@ package item.weapon
 		override public function attackShort():void 
 		{
 			ObjectFactory.stateFactory.makeProjectile(
-					owner.x, owner.y, 0, 0, 0.2, ResourceManager.getRM().imgTempSmall,
-					Projectile.getProjectileDamageFunc(1, 0));
+					owner.x + owner.width / 2 + owner.facingNormalX * 16,
+					owner.y + owner.height / 2 + owner.facingNormalY * 16,
+					0, 0, 0.2, ResourceManager.getRM().imgTempSmall,
+					Projectile.getProjectileDamageFunc(1, 15));
 			super.attackShort();
 		}
 		
