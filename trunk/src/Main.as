@@ -1,8 +1,9 @@
 package 
 {
 	import org.flixel.FlxGame;
+	import game.*;
 	/**
-	 * ...
+	 * The entry point.
 	 * @author morgan
 	 */
 	public class Main extends FlxGame
