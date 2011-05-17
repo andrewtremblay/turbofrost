@@ -13,6 +13,7 @@ package mapgen
 			
 		}
 		
+		// I'm sure this will have parameters later.
 		public function getNextMap() : FlxTilemap
 		{
 			// Good luck, pal.
