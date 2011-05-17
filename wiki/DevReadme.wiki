@@ -1,5 +1,8 @@
 #summary Read this document.
 
+= ART PEOPLE =
+Art stuff goes in the /data folder. That is all.
+
 = COMMITS =
 
 DON'T commit generated files. This includes bin directories, mainly.
