@@ -30,8 +30,12 @@ package
 		
 		public function onHit(a:Actor):void
 		{
-			onHitFunc.call(this, a);
-			kill();
+			// Projectiles can only hit enemies
+			if (a.enemy != enemy)
+			{
+				onHitFunc.call(this, a);
+				kill();
+			}
 		}
 		
 	}
