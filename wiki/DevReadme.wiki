@@ -1,5 +1,8 @@
 #summary Read this document.
 
+= Communication = 
+Find us at freenode #turbofrost
+
 = ART PEOPLE =
 Art stuff goes in the /data folder. That is all.
 
