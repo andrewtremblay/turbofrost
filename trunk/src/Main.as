@@ -6,6 +6,9 @@ package
 	 * The entry point.
 	 * @author morgan
 	 */
+	
+	[SWF(width="640", height="640", backgroundColor="0xffffff")]
+	 
 	public class Main extends FlxGame
 	{
 		
