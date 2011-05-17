@@ -16,12 +16,13 @@ Item-based: Characters derive their stats from the items they're wielding.
   * Str (weap dmg)
   * Agi (move speed, attack rate)
   * Int (LoL AP basically)
-  * Def (HP/armor?)
+  * Def (armor)
+  * Vit (HP - gives more options for tank stats, all armor or armor+HP...) 
 
 Spells are items. You can equip two spells, and each has a button to cast it.
 
 
-You have an inventory. Let's not make it a tetris inventory, just for impl. reasons. 
+You have an inventory. Let's not make it a tetris inventory, just for impl. reasons.  We could do a Morrowind style inv with a weight system for items (carrying capacity and all that).  That way even high level mages cant go around carrying the bulkiest heavy armor in the game unless they get some Str.  This all depends on whether or not we want a clear cut class system (maybe not chosen at the start but grown into depending on what items drop?). 
 
 ==Controls==
 Arrow keys, x attack, c/v spells, i inventory.
