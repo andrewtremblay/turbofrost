@@ -4,11 +4,15 @@
 
 FEEL FREE TO CHANGE ANY OF THIS. But, the engineering depends on some factors so change it early. 
 
-Hack 'n slash combat. Attacks and spell-casts are in the facing direction.
+==Combat==
+Hack 'n slash style. 
+Attacks and spell-casts are in the facing direction.
 
-Item-based; no levels.
+==Progression a.k.a. RPG Elements==
+Player characters don't "level up".
+Item-based: Characters derive their stats from the items they're wielding.
 
-Stat points:
+===Stat points:===
   * Str (weap dmg)
   * Agi (move speed, attack rate)
   * Int (LoL AP basically)
@@ -16,8 +20,15 @@ Stat points:
 
 Spells are items. You can equip two spells, and each has a button to cast it.
 
+
 You have an inventory. Let's not make it a tetris inventory, just for impl. reasons. 
 
+==Controls==
 Arrow keys, x attack, c/v spells, i inventory.
 
-PERMA-DEATH?
+
+==Other Ideas==
+===PERMA-DEATH?===
+Could make the game more of a rogue-like.
+Only problem with perma-death is that it can turn players off from the game, by making them feel like their time invested in that character was a waste.
+Perhaps we could allow players to pass on a single item when they die? This would allow them to keep 1 interesting item, and we could potentially scale the generated dungeons based on the starting item a player has, so veteran players don't have to start "from the beginning" when they die.
