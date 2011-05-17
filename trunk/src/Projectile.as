@@ -1,5 +1,6 @@
 package  
 {
+	import org.flixel.FlxG;
 	/**
 	 * 
 	 * @author morgan
@@ -18,14 +19,26 @@ package
 				};
 		}		
 		
-		private var onHitFunc:Function
-		public function Projectile(x:int, y:int, xv:Number, yv:Number, image:Class = null, onHitFunc:Function = null) 
+		private var onHitFunc:Function;
+		private var timeout:Number;
+		public function Projectile(x:int, y:int, xv:Number, yv:Number, timeout:Number, image:Class = null, onHitFunc:Function = null) 
 		{
 			super(x, y);
 			velocity.x = xv;
 			velocity.y = yv;
 			loadGraphic(image);
 			this.onHitFunc = onHitFunc;
+			this.timeout = timeout;
+		}
+		
+		override public function update():void 
+		{
+			timeout -= FlxG.elapsed;
+			if (timeout <= 0)
+			{
+				kill();
+			}
+			super.update();
 		}
 		
 		public function onHit(a:Actor):void

@@ -72,12 +72,12 @@ package game
 				
 				var weapon:Weapon = (Weapon)(weaponSlotItem);
 				// Short attack
-				if (FlxG.keys.A)
+				if (FlxG.keys.justPressed("A"))
 				{
 					weapon.attackShort();
 				}
 				// Long attack
-				if (FlxG.keys.S)
+				if (FlxG.keys.justPressed("S"))
 				{
 					weapon.attackLong();
 				}

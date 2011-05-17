@@ -18,9 +18,9 @@ package
 			this.projectiles = projectiles;
 		}
 		
-		public function makeProjectile(x:int, y:int, xv:Number, yv:Number, image:Class, onHit:Function):void
+		public function makeProjectile(x:int, y:int, xv:Number, yv:Number, timeout:Number, image:Class, onHit:Function):void
 		{
-			var p:Projectile = new Projectile(x, y, xv, yv, image, onHit);
+			var p:Projectile = new Projectile(x, y, xv, yv, timeout, image, onHit);
 			projectiles.add(p);
 		}
 		
