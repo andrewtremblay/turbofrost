@@ -13,12 +13,12 @@ package item.weapon
 			
 		}
 		
-		public function attackShort()
+		public function attackShort():void
 		{
 			
 		}
 		
-		public function attackLong()
+		public function attackLong():void
 		{
 			
 		}

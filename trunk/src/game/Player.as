@@ -75,7 +75,7 @@ package game
 				}
 			}
 
-			// Spells later, when I figure out if we have mana or whatnot
+			// Spells later, when I figure out if we have mana or whatever
 			if (FlxG.keys.D)
 			{
 				
