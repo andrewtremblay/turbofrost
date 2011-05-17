@@ -7,6 +7,7 @@ package
 	public class ResourceManager 
 	{
 		// Place all embeds here. 
+		[Embed (source = "../data/temp_small.png")] public var imgTempSmall:Class;
 		
 		private static var resourceManager:ResourceManager = null;
 		private static var allowInstantiation:Boolean = false;
