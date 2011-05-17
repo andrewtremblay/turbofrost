@@ -1,0 +1,10 @@
+#summary Read this document.
+
+= COMMITS =
+
+DON'T commit generated files. This includes bin directories, mainly
+Commit comments are nice, but it's not a big deal if you're working on mainly your own thing.
+
+
+= SOFT ENG =
+to be continued.
