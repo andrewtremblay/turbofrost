@@ -22,6 +22,9 @@ package game
 		{
 			super.create();
 			
+			var of:ObjectFactory = new ObjectFactory(actors, projectiles);
+			ObjectFactory.stateFactory = of;
+			
 			// TEMP
 			player = new Player(180, 180);
 			
@@ -40,7 +43,7 @@ package game
 			super.update();
 		}
 		
-		public function oProjActor(p:Projectile, a:Actor)
+		public function oProjActor(p:Projectile, a:Actor):void
 		{
 			p.onHit(a);
 			a.onHit(p);

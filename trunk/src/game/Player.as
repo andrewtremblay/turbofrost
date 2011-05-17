@@ -2,13 +2,14 @@ package game
 {
 	import item.Inventory;
 	import item.Item;
+	import item.weapon.Sword;
 	import item.weapon.Weapon;
 	import org.flixel.FlxG;
 	/**
 	 * Player class
 	 * @author morgan
 	 */
-	public class Player extends Entity
+	public class Player extends Actor
 	{
 		
 		public const STR_DMG_MOD:Number = 1; // Attack bonus per pt of str
@@ -32,6 +33,11 @@ package game
 		{
 			super(x, y);
 			inventory = new Inventory();
+			//TODO: Remove
+			var s:Sword = new Sword();
+			s.setOwner(this);
+			inventory.addItem(s);
+			inventory.equip(Inventory.EQUIP_WEAPON, s);
 		}
 		
 		public function updateControls():void
@@ -59,9 +65,11 @@ package game
 				velocity.y = moveSpeed;
 			}
 			
+			
 			var weaponSlotItem:Item = inventory.getEquipped(Inventory.EQUIP_WEAPON);
 			if (weaponSlotItem is Weapon)
 			{
+				
 				var weapon:Weapon = (Weapon)(weaponSlotItem);
 				// Short attack
 				if (FlxG.keys.A)

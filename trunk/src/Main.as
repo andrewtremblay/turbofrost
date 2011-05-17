@@ -15,6 +15,7 @@ package
 		public function Main():void 
 		{
 			super(320, 320, TitleState, 2, 60, 60);
+			forceDebugger = true;
 		}
 		
 	}
