@@ -7,10 +7,10 @@ package
 	 */
 	public class Entity extends FlxSprite
 	{
-		
-		public function Entity() 
+		public var enemy:Boolean = false;
+		public function Entity(x:int, y:int)
 		{
-			
+			super(x, y);
 		}
 		
 	}
