@@ -73,8 +73,17 @@ package game
 				{
 					weapon.attackLong();
 				}
+			}
+
+			// Spells later, when I figure out if we have mana or whatnot
+			if (FlxG.keys.D)
+			{
 				
 			}
+			if (FlxG.keys.F)
+			{
+				
+			}			
 		}
 		
 		public function calcStats() : void
