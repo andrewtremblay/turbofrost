@@ -10,14 +10,18 @@ Commit comments are nice, but it's not a big deal if you're working on mainly yo
 = WHO/WHAT =
 
 Morgan: Framework for now. 
+
 Thomas:
+
 Justin:
+
 Matt:
+
 Karl: ?
+
 Jackson: ?
+
 Ryan: Art LOL
 
 = SOFT ENG =
 to be continued.
-
-
