@@ -1,0 +1,23 @@
+#summary Everything
+
+= Mechanics =
+
+FEEL FREE TO CHANGE ANY OF THIS. But, the engineering depends on some factors so change it early. 
+
+Hack 'n slash combat. Attacks and spell-casts are in the facing direction.
+
+Item-based; no levels.
+
+Stat points:
+  * Str (weap dmg)
+  * Agi (move speed, attack rate)
+  * Int (LoL AP basically)
+  * Def (HP/armor?)
+
+Spells are items. You can equip two spells, and each has a button to cast it.
+
+You have an inventory. Let's not make it a tetris inventory, just for impl. reasons. 
+
+Arrow keys, x attack, c/v spells, i inventory.
+
+PERMA-DEATH?
