@@ -2,7 +2,8 @@
 
 = COMMITS =
 
-DON'T commit generated files. This includes bin directories, mainly
+DON'T commit generated files. This includes bin directories, mainly.
+
 Commit comments are nice, but it's not a big deal if you're working on mainly your own thing.
 
 
