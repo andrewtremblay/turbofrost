@@ -2,6 +2,7 @@ package game
 {
 	import monster.Monster;
 	import org.flixel.*;
+	import particle.ParticleSystem;
 	/**
 	 * State for the main gameplay
 	 * @author morgan
@@ -14,6 +15,8 @@ package game
 		private var actors:FlxGroup 		= new FlxGroup();
 		private var projectiles:FlxGroup 	= new FlxGroup();
 		
+		private var particleSystem:ParticleSystem = new ParticleSystem(3000);
+		
 		public function PlayState() 
 		{
 			super();
@@ -24,7 +27,7 @@ package game
 		{
 			super.create();
 			
-			var of:ObjectFactory = new ObjectFactory(actors, projectiles);
+			var of:ObjectFactory = new ObjectFactory(actors, projectiles, particleSystem);
 			ObjectFactory.stateFactory = of;
 			
 			// TEMP
@@ -38,6 +41,7 @@ package game
 			add(interactables);
 			add(actors);
 			add(projectiles);
+			add(particleSystem);
 		}
 		
 		override public function update():void 

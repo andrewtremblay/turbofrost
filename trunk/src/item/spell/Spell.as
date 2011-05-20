@@ -4,17 +4,21 @@ package item.spell
 	import org.flixel.FlxG;
 	import item.Item;
 	/**
-	 * ...
+	 * The item that casts a specific spell. 
+	 * When subclassing, you should only need to override cast and updateCast.
+	 * All spells are assumed to have a chargable part. So, if you hold down the 
+	 * cast key, it will make it stronger in some way. If you want it to cast immediately,
+	 * make maxCharge 0. 
 	 * @author morgan
 	 */
 	public class Spell extends Item
 	{
-		private var cooldown:Number = 1;
+		protected var cooldown:Number = 1;
 		private var cooldownTimer:Number = 0;
-		private var casting:Boolean = false;
+		protected var casting:Boolean = false;
 		
 		private var chargeTime:Number = 0;
-		private var maxCharge:Number = 1.0;
+		protected var maxCharge:Number = 1.0;
 		
 		public function Spell() 
 		{
@@ -38,7 +42,6 @@ package item.spell
 				chargeTime = 0;
 				casting = true;
 				owner.casting = true;
-				FlxG.log("beginCast()")
 			}
 		}
 		
@@ -67,7 +70,6 @@ package item.spell
 				owner.casting = false;
 				cooldownTimer = cooldown;
 				cast(chargeTime);
-				FlxG.log("endCast()")
 			}
 		}
 		

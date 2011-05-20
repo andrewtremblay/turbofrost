@@ -8,9 +8,10 @@ package monster
 	{
 		
 		public function Monster(x:int, y:int) 
-		{
-			enemy = true;
+		{	
 			super(x, y);
+			enemy = true;
+			health = 50;
 		}
 		
 	}

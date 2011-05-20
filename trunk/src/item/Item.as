@@ -16,6 +16,8 @@ package item
 			
 		}
 		
+		// This exists mainly for cooldowns on weapons and spells, but 
+		// it could be useful for items with constant effects (IE sunfire)
 		public function update() : void
 		{
 			
