@@ -12,14 +12,15 @@ package
 		public static function getProjectileDamageFunc(damage:int, knockbackX:Number, knockbackY:Number):Function
 		{
 			return function(target:Actor):void
-				{
-					// knockback
-					// TODO: make this based on projectile direction or something?
-					target.knockbackX += knockbackX;
-					target.knockbackY += knockbackY;
-					// damage
-					target.health -= damage;
-				};
+			{
+				// knockback
+				// TODO: make this based on projectile direction or something?
+				// TODO: also a function for kb instead of setting some vars
+				target.knockbackX += knockbackX;
+				target.knockbackY += knockbackY;
+				// damage
+				target.takeDamage(damage);
+			};
 		}		
 		
 		private var onHitFunc:Function;
@@ -42,6 +43,7 @@ package
 			if (timeout <= 0)
 			{
 				kill();
+				destroy();
 			}
 			if (emitter)
 			{

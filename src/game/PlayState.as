@@ -14,6 +14,7 @@ package game
 		private var interactables:FlxGroup 	= new FlxGroup();
 		private var actors:FlxGroup 		= new FlxGroup();
 		private var projectiles:FlxGroup 	= new FlxGroup();
+		private var gui:FlxGroup 			= new FlxGroup();
 		
 		private var particleSystem:ParticleSystem = new ParticleSystem(3000);
 		
@@ -27,22 +28,17 @@ package game
 		{
 			super.create();
 			
-			var of:ObjectFactory = new ObjectFactory(actors, projectiles, particleSystem);
+			var of:ObjectFactory = new ObjectFactory(actors, projectiles, particleSystem, gui);
 			ObjectFactory.stateFactory = of;
 			
-			// TODO : remove after making a "player spawn" object
-			player = new Player(180, 180);
-			// TODO : remove after making monster spawners
-			var monster:Monster = new Monster(180, 60);
-			
-			// TODO : same as above.
-			actors.add(player);
-			actors.add(monster);
+			of.makeActor(Player, 180, 180);
+			of.makeActor(Monster, 180, 60);
 			
 			add(interactables);
 			add(actors);
 			add(projectiles);
 			add(particleSystem);
+			add(gui);
 		}
 		
 		override public function update():void 

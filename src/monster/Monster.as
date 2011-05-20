@@ -9,9 +9,9 @@ package monster
 		
 		public function Monster(x:int, y:int) 
 		{	
-			super(x, y);
 			enemy = true;
-			health = 50;
+			maxHealth = 50;
+			super(x, y);
 		}
 		
 	}
