@@ -1,5 +1,7 @@
 package  
 {
+	import org.flixel.FlxG;
+	import ui.StatBar;
 	/**
 	 * Base class for player and monsters. They can hold things, attack, cast spells
 	 * @author morgan
@@ -17,10 +19,15 @@ package
 		
 		public var casting:Boolean = false;
 		
+		public var healthbar:StatBar;
+		
+		public var maxHealth:Number = 0;
+		
 		public function Actor(x:int, y:int) 
 		{
 			super(x, y);
-			health = 1;
+			health = maxHealth;
+			FlxG.log(maxHealth);
 		}
 		
 		override public function update():void 
@@ -42,15 +49,39 @@ package
 				knockback = false;
 			}
 			
+			if (healthbar)
+			{
+				healthbar.x = x;
+				healthbar.y = y - 6;
+			}
+			
 			if (health <= 0)
 			{
 				kill();
 			}
 		}
 		
+		public function takeDamage(d:int) : void
+		{
+			health -= d;
+			if (healthbar)
+			{
+				healthbar.setValue(health);
+			}
+		}
+		
 		public function onHit(p:Projectile):void
 		{
 			
+		}
+		
+		override public function kill():void 
+		{
+			if (healthbar)
+			{
+				healthbar.kill();
+			}
+			super.kill();
 		}
 		
 	}

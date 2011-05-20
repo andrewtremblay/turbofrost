@@ -33,6 +33,7 @@ package game
 		
 		public function Player(x:int, y:int) 
 		{
+			maxHealth = 1;
 			super(x, y);
 			inventory = new Inventory();
 			

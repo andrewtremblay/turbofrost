@@ -20,7 +20,7 @@ package item.spell
 				owner.facingNormalX * 140, owner.facingNormalY * 140, charge + 0.25, 
 				ResourceManager.getRM().imgTempSmall, 
 				Projectile.getProjectileDamageFunc(10, owner.facingNormalX * 260, owner.facingNormalY * 260),
-				new Emitter(0,0, 100));
+				new Emitter(owner.x,owner.y, 100));
 		}
 		
 	}

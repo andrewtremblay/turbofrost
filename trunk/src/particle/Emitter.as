@@ -1,5 +1,6 @@
 package particle 
 {
+	import flash.display.BitmapData;
 	import org.flixel.FlxG;
 	/**
 	 * ...
@@ -13,11 +14,14 @@ package particle
 		public var x:Number = 0;
 		public var y:Number = 0;
 		
+		private var emitterImg:BitmapData;
+		
 		public function Emitter(x:int, y:int, particlesPerSecond:Number) 
 		{
 			this.x = x;
 			this.y = y;
-			this.particlePeriod = 1.0/particlesPerSecond;
+			this.particlePeriod = 1.0 / particlesPerSecond;
+			emitterImg = FlxG.addBitmap(ResourceManager.getRM().imgTempSmall);
 		}
 		
 		public function setParticleSystem(system:ParticleSystem) : void
@@ -32,8 +36,13 @@ package particle
 			while (particleTimer >= particlePeriod)
 			{
 				particleTimer -= particlePeriod;
-				system.addParticle(x, y);
+				emit();
 			}
+		}
+		
+		protected function emit() : void
+		{
+			system.addSimpleImageParticle(x - 4, y - 4, emitterImg);
 		}
 		
 	}
