@@ -2,6 +2,8 @@ package game
 {
 	import item.Inventory;
 	import item.Item;
+	import item.spell.SimpleMissile;
+	import item.spell.Spell;
 	import item.weapon.Sword;
 	import item.weapon.Weapon;
 	import org.flixel.FlxG;
@@ -33,11 +35,18 @@ package game
 		{
 			super(x, y);
 			inventory = new Inventory();
+			
 			//TODO: Remove
 			var s:Sword = new Sword();
 			s.setOwner(this);
 			inventory.addItem(s);
 			inventory.equip(Inventory.EQUIP_WEAPON, s);
+			
+			//TODO: Remove this too
+			var m:SimpleMissile = new SimpleMissile();
+			m.setOwner(this);
+			inventory.addItem(m);
+			inventory.equip(Inventory.EQUIP_SPELL1, m)
 		}
 		
 		public function updateControls():void
@@ -45,35 +54,38 @@ package game
 			// Calculate movement speed based on stats
 			moveSpeed = BASESPEED + stat_agi * AGI_MOVE_MOD;
 			
+			// While casting, you can still move a bit
+			if (casting) { moveSpeed *= 0.33; }
+			
 			// Movement
 			// This may become more complicated if we allow interesting combat mechanics.
-			velocity.x = velocity.y = 0;
 			if (FlxG.keys.LEFT)
 			{
-				velocity.x = -moveSpeed;
+				velocity.x += -moveSpeed;
 				facingNormalX = -1;
 				facingNormalY = 0;
 			}
 			else if (FlxG.keys.RIGHT)
 			{
-				velocity.x = moveSpeed;
+				velocity.x += moveSpeed;
 				facingNormalX = 1;
 				facingNormalY = 0;				
 			}
 			else if (FlxG.keys.UP)
 			{
-				velocity.y = -moveSpeed;
+				velocity.y += -moveSpeed;
 				facingNormalX = 0;
 				facingNormalY = -1;				
 			}
 			else if (FlxG.keys.DOWN)
 			{
-				velocity.y = moveSpeed;
+				velocity.y += moveSpeed;
 				facingNormalX = 0;
 				facingNormalY = 1;
 			}
 			
 			
+			// Weapon usage
 			var weaponSlotItem:Item = inventory.getEquipped(Inventory.EQUIP_WEAPON);
 			if (weaponSlotItem is Weapon)
 			{
@@ -91,15 +103,34 @@ package game
 				}
 			}
 
-			// Spells later, when I figure out if we have mana or whatever
-			if (FlxG.keys.justPressed("D"))
-			{
-				
+			// Spell casting
+			var spell1ItemSlot:Item = inventory.getEquipped(Inventory.EQUIP_SPELL1)
+			if (spell1ItemSlot is Spell)
+			{			
+				var spell1:Spell = (Spell)(spell1ItemSlot);
+				if (FlxG.keys.justPressed("D") && !casting)
+				{
+					spell1.beginCast();
+				}
+				if (FlxG.keys.justReleased("D"))
+				{
+					spell1.endCast();
+				}
 			}
-			if (FlxG.keys.justPressed("F"))
-			{
 				
-			}			
+			var spell2ItemSlot:Item = inventory.getEquipped(Inventory.EQUIP_SPELL2)
+			if (spell2ItemSlot is Spell)
+			{			
+				var spell2:Spell = (Spell)(spell2ItemSlot);
+				if (FlxG.keys.justPressed("F") && !casting)
+				{
+					spell2.beginCast();
+				}
+				if (FlxG.keys.justReleased("F"))
+				{
+					spell2.endCast();
+				}
+			}
 		}
 		
 		public function calcStats() : void
@@ -109,9 +140,10 @@ package game
 		
 		override public function update():void 
 		{
+			inventory.updateEquipment();
+			super.update();			
 			calcStats();
 			updateControls();
-			super.update();
 		}
 		
 	}

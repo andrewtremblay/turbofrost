@@ -8,14 +8,14 @@ package
 	public class Projectile extends Entity
 	{
 		// Handy ways to get useful projectile collision functions
-		public static function getProjectileDamageFunc(damage:int, knockback:Number):Function
+		public static function getProjectileDamageFunc(damage:int, knockbackX:Number, knockbackY:Number):Function
 		{
 			return function(target:Actor):void
 				{
 					// knockback
 					// TODO: make this based on projectile direction or something?
-					target.knockbackX = -target.facingNormalX * knockback;
-					target.knockbackY = -target.facingNormalY * knockback;
+					target.knockbackX += knockbackX;
+					target.knockbackY += knockbackY;
 					// damage
 					target.health -= damage;
 				};

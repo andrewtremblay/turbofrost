@@ -1,5 +1,6 @@
 package game 
 {
+	import monster.Monster;
 	import org.flixel.*;
 	/**
 	 * State for the main gameplay
@@ -28,9 +29,11 @@ package game
 			
 			// TEMP
 			player = new Player(180, 180);
+			var monster:Monster = new Monster(180, 60);
 			
 			// TEMP
 			actors.add(player);
+			actors.add(monster);
 			
 			add(interactables);
 			add(actors);

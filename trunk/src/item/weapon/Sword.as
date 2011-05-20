@@ -11,7 +11,7 @@ package item.weapon
 		
 		public function Sword() 
 		{
-			itemSlot = Inventory.EQUIP_WEAPON;
+			itemSlots = [Inventory.EQUIP_WEAPON];
 		}
 		
 		override public function attackShort():void 
@@ -20,7 +20,7 @@ package item.weapon
 					owner.x + owner.width / 2 + owner.facingNormalX * 16,
 					owner.y + owner.height / 2 + owner.facingNormalY * 16,
 					0, 0, 0.2, ResourceManager.getRM().imgTempSmall,
-					Projectile.getProjectileDamageFunc(1, 15));
+					Projectile.getProjectileDamageFunc(0, owner.facingNormalX * 60, owner.facingNormalY * 60));
 			super.attackShort();
 		}
 		
