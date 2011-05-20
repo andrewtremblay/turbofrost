@@ -1,6 +1,7 @@
 package  
 {
 	import org.flixel.FlxG;
+	import particle.Emitter;
 	/**
 	 * 
 	 * @author morgan
@@ -23,7 +24,8 @@ package
 		
 		private var onHitFunc:Function;
 		private var timeout:Number;
-		public function Projectile(x:int, y:int, xv:Number, yv:Number, timeout:Number, image:Class = null, onHitFunc:Function = null) 
+		private var emitter:Emitter;
+		public function Projectile(x:int, y:int, xv:Number, yv:Number, timeout:Number, image:Class = null, onHitFunc:Function = null, emitter:Emitter = null) 
 		{
 			super(x, y);
 			velocity.x = xv;
@@ -31,6 +33,7 @@ package
 			loadGraphic(image);
 			this.onHitFunc = onHitFunc;
 			this.timeout = timeout;
+			this.emitter = emitter;
 		}
 		
 		override public function update():void 
@@ -39,6 +42,12 @@ package
 			if (timeout <= 0)
 			{
 				kill();
+			}
+			if (emitter)
+			{
+				emitter.update();
+				emitter.x = x + width / 2;
+				emitter.y = y + height / 2;
 			}
 			super.update();
 		}

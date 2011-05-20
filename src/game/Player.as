@@ -84,6 +84,8 @@ package game
 				facingNormalY = 1;
 			}
 			
+			// TODO: controls will be different because of class concept. Figure
+			// out the right way to do this.
 			
 			// Weapon usage
 			var weaponSlotItem:Item = inventory.getEquipped(Inventory.EQUIP_WEAPON);
@@ -94,12 +96,12 @@ package game
 				// Short attack
 				if (FlxG.keys.justPressed("A"))
 				{
-					weapon.attackShort();
+					weapon.attackWeak();
 				}
 				// Long attack
 				if (FlxG.keys.justPressed("S"))
 				{
-					weapon.attackLong();
+					weapon.attackStrong();
 				}
 			}
 

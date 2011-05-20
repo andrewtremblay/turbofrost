@@ -1,5 +1,6 @@
 package item.spell 
 {
+	import particle.Emitter;
 	/**
 	 * ...
 	 * @author morgan
@@ -18,7 +19,8 @@ package item.spell
 				owner.x + owner.width / 2, owner.y + owner.height / 2,
 				owner.facingNormalX * 140, owner.facingNormalY * 140, charge + 0.25, 
 				ResourceManager.getRM().imgTempSmall, 
-				Projectile.getProjectileDamageFunc(0, owner.facingNormalX * 260, owner.facingNormalY * 260));
+				Projectile.getProjectileDamageFunc(10, owner.facingNormalX * 260, owner.facingNormalY * 260),
+				new Emitter(0,0, 100));
 		}
 		
 	}
