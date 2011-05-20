@@ -30,11 +30,12 @@ package game
 			var of:ObjectFactory = new ObjectFactory(actors, projectiles, particleSystem);
 			ObjectFactory.stateFactory = of;
 			
-			// TEMP
+			// TODO : remove after making a "player spawn" object
 			player = new Player(180, 180);
+			// TODO : remove after making monster spawners
 			var monster:Monster = new Monster(180, 60);
 			
-			// TEMP
+			// TODO : same as above.
 			actors.add(player);
 			actors.add(monster);
 			
