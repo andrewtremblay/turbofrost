@@ -13,7 +13,7 @@ package game
 			super();
 			// TODO: Fix this whole state
 			
-			add(new FlxText(100, 10, 100, "X to start"));
+			add(new FlxText(140, 10, 100, "X to start"));
 		}
 		
 		override public function update():void 

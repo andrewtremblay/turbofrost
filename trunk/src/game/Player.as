@@ -15,10 +15,13 @@ package game
 	{
 		
 		public const STR_DMG_MOD:Number = 1; // Attack bonus per pt of str
+		public const STR_HP_MOD:Number = 1; // Health bonus per pt of str
+		
 		public const AGI_MOVE_MOD:Number = 3; // Move speed bonus per pt of agi
 		public const AGI_AR_MOD:Number = 1; // Attack rate bonus per pt of agi
+		
 		public const INT_AP_MOD:Number = 1; // AP bonus per pt of int (should be 1, probably)
-		public const DEF_HP_MOD:Number = 1; // Health bonus per pt of def
+		public const INT_CD_MOD:Number = 1; // CD bonus per pt of int
 		
 		public const BASESPEED:Number = 48;
 		
@@ -27,7 +30,13 @@ package game
 		public var stat_str:Number = 0;
 		public var stat_agi:Number = 0;
 		public var stat_int:Number = 0;
-		public var stat_def:Number = 0;
+		
+		public var stat_dmg:Number 	= 0;
+		public var stat_hp:Number 	= 0;
+		public var stat_move:Number = 0;
+		public var stat_ar:Number 	= 0;
+		public var stat_ap:Number 	= 0;
+		public var stat_cd:Number 	= 0;
 		
 		public var inventory:Inventory;
 		
@@ -53,7 +62,7 @@ package game
 		public function updateControls():void
 		{
 			// Calculate movement speed based on stats
-			moveSpeed = BASESPEED + stat_agi * AGI_MOVE_MOD;
+			moveSpeed = BASESPEED + stat_move;
 			
 			// While casting, you can still move a bit
 			if (casting) { moveSpeed *= 0.33; }
@@ -138,7 +147,15 @@ package game
 		
 		public function calcStats() : void
 		{
-			// TODO: calculate based on items
+			stat_ap = stat_int * INT_AP_MOD	
+			stat_cd = stat_int * INT_CD_MOD
+			stat_dmg = stat_str * STR_DMG_MOD;
+			stat_hp = stat_str * STR_HP_MOD;
+			stat_move = stat_agi * AGI_MOVE_MOD;
+			stat_ar = stat_agi * AGI_AR_MOD
+			
+			// TODO: add to these based on items
+			
 		}
 		
 		override public function update():void 
