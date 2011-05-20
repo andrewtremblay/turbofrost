@@ -16,7 +16,7 @@ package game
 		private var projectiles:FlxGroup 	= new FlxGroup();
 		private var gui:FlxGroup 			= new FlxGroup();
 		
-		private var particleSystem:ParticleSystem = new ParticleSystem(3000);
+		private var particleSystem:ParticleSystem = new ParticleSystem(1000);
 		
 		public function PlayState() 
 		{
@@ -44,6 +44,7 @@ package game
 		override public function update():void 
 		{
 			FlxG.overlap(projectiles, actors, oProjActor);
+			FlxG.collide(actors, actors);
 			
 			super.update();
 		}
