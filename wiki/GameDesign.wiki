@@ -1,6 +1,6 @@
 #summary Everything
 
-= Mechanics =
+= 1. Mechanics =
 
 FEEL FREE TO CHANGE ANY OF THIS. But, the engineering depends on some factors so change it early. 
 
@@ -12,23 +12,54 @@ Attacks and spell-casts are in the facing direction.
 Player characters don't "level up".
 Item-based: Characters derive their stats from the items they're wielding.
 
-===Stat points:===
-  * Str (weap dmg)
-  * Agi (move speed, attack rate)
-  * Int (LoL AP basically)
-  * Def (armor)
-  * Vit (HP - gives more options for tank stats, all armor or armor+HP...) 
+= 2. Stats in our Game=
+===Strength (STR)===
+STR influences:
+  * Attack (Weapon) Damage (AD)
+  * Hit Points (HP)
+
+===Agility (AGI)===
+AGI influences:
+  * Attack Speed (AS)
+  * Move Speed (MS)
+
+===Intelligence (INT)===
+INT influences:
+  * Ability Power (AP)
+  * Cooldown Reduction (CDR)
+
+===Other Stats===
+Weapons each have a base damage (or range of damage) that influences how much damage their associated weapon attacks deal.
+
+Armors each have a base amount of Defense they provide.
+
+
+= 3. Items=
+Certain statistics are tied to certain item slots.
+===Head===
+  * Primary: INT
+  * Secondary: 
+===Chest===
+  * Primary: STR
+  * Secondary: 
+===Hands===
+  * Primary: AGI
+  * Secondary: AS / CDR
+===Feet===
+  * Primary: AGI
+  * Secondary: MS
+
 
 Spells are items. You can equip two spells, and each has a button to cast it.
 
 
 You have an inventory. Let's not make it a tetris inventory, just for impl. reasons.  We could do a Morrowind style inv with a weight system for items (carrying capacity and all that).  That way even high level mages cant go around carrying the bulkiest heavy armor in the game unless they get some Str.  This all depends on whether or not we want a clear cut class system (maybe not chosen at the start but grown into depending on what items drop? -- On this note it would be interesting to forego classes and instead have drops weighted based on current stat layout, ie - higher int gives a higher chance of wands dropping, so the class/ drops dynamically change as players change their equipment). 
 
-==Controls==
+= 4. Controls=
 Arrow keys, x attack, c/v spells, i inventory.
 
 
-==Other Ideas==
+= 5. Unapproved Ideas=
 ===PERMA-DEATH?===
 Could make the game more of a rogue-like.
 Only problem with perma-death is that it can turn players off from the game, by making them feel like their time invested in that character was a waste.
