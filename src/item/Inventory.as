@@ -50,7 +50,7 @@ package item
 		// The item must be for the correct equipment slot
 		public function equip(equipSlot:int, i:Item):void
 		{
-			if (i.itemSlot == equipSlot)
+			if (i.itemSlots.indexOf(equipSlot) != -1)
 			{
 				if (equipped[equipSlot] == null)
 				{
@@ -72,6 +72,17 @@ package item
 			{
 				addItem(equipped[equipSlot]);
 				equipped[equipSlot] = null;
+			}
+		}
+		
+		public function updateEquipment():void
+		{
+			for (var k:Object in equipped)
+			{
+				if (equipped[k])
+				{
+					(Item)(equipped[k]).update();
+				}
 			}
 		}
 		
