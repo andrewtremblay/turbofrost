@@ -11,13 +11,6 @@ package game
 	{
 		private var player:Player;
 		
-		private var interactables:FlxGroup 	= new FlxGroup();
-		private var actors:FlxGroup 		= new FlxGroup();
-		private var projectiles:FlxGroup 	= new FlxGroup();
-		private var gui:FlxGroup 			= new FlxGroup();
-		
-		private var particleSystem:ParticleSystem = new ParticleSystem(1000);
-		
 		public function PlayState() 
 		{
 			super();
@@ -28,17 +21,8 @@ package game
 		{
 			super.create();
 			
-			var of:ObjectFactory = new ObjectFactory(actors, projectiles, particleSystem, gui);
-			ObjectFactory.stateFactory = of;
-			
-			of.makeActor(Player, 180, 180);
-			of.makeActor(Monster, 180, 60);
-			
-			add(interactables);
-			add(actors);
-			add(projectiles);
-			add(particleSystem);
-			add(gui);
+			ObjectFactory.stateFactory.makeActor(Player, 180, 180);
+			ObjectFactory.stateFactory.makeActor(Monster, 180, 60);
 		}
 		
 		override public function update():void 

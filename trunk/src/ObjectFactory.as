@@ -45,6 +45,11 @@ package
 			actors.add(a);
 		}
 		
+		public function makeMonster(x:int, y:int)
+		{
+			
+		}
+		
 	}
 
 }
