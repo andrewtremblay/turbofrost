@@ -19,18 +19,33 @@ Notes:
 
 = WHO/WHAT =
 
-Morgan: Framework for now. 
+Morgan: 
+  * Framework (Done for now)
+  * Monster Generation 
 
 Thomas:
+  * Items
+  * Inventory
+  * Loot System
+  * Map Generation
 
 Justin:
-
+  * vacation - inactive
 Matt:
+  * Map Generation
 
-Sanado: Sprites 'n Shit
+Ingrid:
+  * GUI
+
+Adam:
+  * Monster Generation (derp)
 
 Karl: ?
 
 Jackson: ?
 
 Ryan: Art LOL (we'll keep the art style simple enough that all you techies can contribute. yes, even jackson. maybe.)
+
+Sanado: Sprites 'n Shit'
+
+killagouge: title screen
