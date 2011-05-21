@@ -1,6 +1,9 @@
 package game 
 {
 	import monster.Monster;
+	import monster.components.*;
+	import monster.MonsterDefinition;
+	import item.weapon.*;
 	import org.flixel.*;
 	import particle.ParticleSystem;
 	/**
@@ -22,7 +25,7 @@ package game
 			super.create();
 			
 			ObjectFactory.stateFactory.makeActor(Player, 180, 180);
-			ObjectFactory.stateFactory.makeActor(Monster, 180, 60);
+			ObjectFactory.stateFactory.makeMonster(180, 60, new MonsterDefinition([ [HoldsWeaponComponent, [Sword]] ]));
 		}
 		
 		override public function update():void 

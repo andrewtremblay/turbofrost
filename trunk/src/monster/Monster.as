@@ -1,23 +1,38 @@
 package monster 
 {
+	import monster.components.HoldsWeaponComponent;
 	/**
 	 * ...
 	 * @author morgan
 	 */
 	public class Monster extends Actor
 	{
-		//A monster has a list of components
 		public var components:Array;
-		public function Monster(x:int, y:int, componentClasses:Array) 
+		public function Monster(x:int, y:int, components:Array) 
 		{	
 			enemy = true;
 			maxHealth = 50;
 			super(x, y);
-			components = new Array();
-			for each (var c:Class in componentClasses)
+			this.components = components;
+		}
+		
+		override public function update():void 
+		{
+			for each (var c:MonsterComponent in components)
 			{
-				components.push(new c());
+				c.x = x + c.positionOffsetX;
+				c.y = y + c.positionOffsetY;
 			}
+			super.update();
+		}
+		
+		override public function kill():void 
+		{
+			for each (var c:MonsterComponent in components)
+			{
+				c.kill();
+			}			
+			super.kill();
 		}
 		
 	}

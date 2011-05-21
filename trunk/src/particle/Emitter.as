@@ -14,6 +14,7 @@ package particle
 		public var x:Number = 0;
 		public var y:Number = 0;
 		
+		// TODO: remove this and put it in a subclass
 		private var emitterImg:BitmapData;
 		
 		public function Emitter(x:int, y:int, particlesPerSecond:Number) 
