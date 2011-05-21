@@ -23,6 +23,10 @@ package game
 		public const INT_AP_MOD:Number = 1; // AP bonus per pt of int (should be 1, probably)
 		public const INT_CD_MOD:Number = 1; // CD bonus per pt of int
 		
+		public const ATTACK_WEAK_TIME:Number = 0.1;
+		public const ATTACK_STRONG_TIME:Number = 0.3;
+		public const ATTACK_SPECIAL_TIME:Number = 0.8;
+		
 		public const BASESPEED:Number = 48;
 		
 		public var moveSpeed:Number = 0;
@@ -66,6 +70,7 @@ package game
 			
 			// While casting, you can still move a bit
 			if (casting) { moveSpeed *= 0.33; }
+			if (attacking) { moveSpeed *= 0; }
 			
 			// Movement
 			// This may become more complicated if we allow interesting combat mechanics.
@@ -101,17 +106,20 @@ package game
 			var weaponSlotItem:Item = inventory.getEquipped(Inventory.EQUIP_WEAPON);
 			if (weaponSlotItem is Weapon)
 			{
-				
 				var weapon:Weapon = (Weapon)(weaponSlotItem);
 				// Short attack
-				if (FlxG.keys.justPressed("A"))
+				if (FlxG.keys.justPressed("A") && !attacking && !casting)
 				{
 					weapon.attackWeak();
+					attacking = true;
+					attackingTimer = ATTACK_WEAK_TIME;
 				}
 				// Long attack
-				if (FlxG.keys.justPressed("S"))
+				if (FlxG.keys.justPressed("S") && !attacking && !casting)
 				{
 					weapon.attackStrong();
+					attacking = true;
+					attackingTimer = ATTACK_STRONG_TIME;
 				}
 			}
 
@@ -120,7 +128,7 @@ package game
 			if (spell1ItemSlot is Spell)
 			{			
 				var spell1:Spell = (Spell)(spell1ItemSlot);
-				if (FlxG.keys.justPressed("D") && !casting)
+				if (FlxG.keys.justPressed("D") && !attacking && !casting)
 				{
 					spell1.beginCast();
 				}
@@ -134,7 +142,7 @@ package game
 			if (spell2ItemSlot is Spell)
 			{			
 				var spell2:Spell = (Spell)(spell2ItemSlot);
-				if (FlxG.keys.justPressed("F") && !casting)
+				if (FlxG.keys.justPressed("F") && !attacking && !casting)
 				{
 					spell2.beginCast();
 				}

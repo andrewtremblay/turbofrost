@@ -18,16 +18,17 @@ package
 		public var knockbackY:Number = 0;
 		
 		public var casting:Boolean = false;
+		public var attacking:Boolean = false;
+		public var attackingTimer:Number = 0;
+		
 		
 		public var healthbar:StatBar;
-		
 		public var maxHealth:Number = 0;
 		
 		public function Actor(x:int, y:int) 
 		{
 			super(x, y);
 			health = maxHealth;
-			FlxG.log(maxHealth);
 		}
 		
 		override public function update():void 
@@ -53,6 +54,15 @@ package
 			{
 				healthbar.x = x;
 				healthbar.y = y - 6;
+			}
+			
+			if (attacking)
+			{
+				attackingTimer -= FlxG.elapsed;
+				if (attackingTimer <= 0)
+				{
+					attacking = false;
+				}
 			}
 			
 			if (health <= 0)
